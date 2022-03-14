@@ -3,6 +3,7 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 class dataset:
@@ -87,16 +88,21 @@ class LR:
 
         ## Calculate the mean squared error
         Y_pred = X.T @ w
-        self.__MSE(Y ,Y_pred)
+        mse = self.__MSE(Y ,Y_pred)
+        print(f'Mean Squared Error: {mse}')
 
         return w
 
-    def predict(self, w):
+    def predict(self, w, verbose = True):
         """
         Predict the Linear Regression using fixed input weights
 
+        Parameters:
+        ------------
         w : array_like
             array of weights, shape must meet `(n, 1)`, column vector
+        verbose : Boolean
+            print the error value or not
 
         Returns:
         --------
@@ -105,12 +111,15 @@ class LR:
         """
 
         Y_pred = self.X_test @ w
-        self.__MSE(Y_test ,Y_pred, 'Test')
+        mse = self.__MSE(Y_test ,Y_pred)
+        if verbose:
+            print('Test')
+            print(f'Mean Squared Error: {mse}')
 
         return Y_pred
 
     
-    def solve_incremental(self, W, iter = 1000, normalize = True):
+    def solve_incremental(self, W, iter = 1000, normalize = True, partial = 0):
         """
         Incremental Learning for Linear Regression
         The method used is online gradient descent
@@ -128,11 +137,16 @@ class LR:
             the number of iterations to learn
         normalize : Boolean
             if True normalize the dataset, default: True
+        partial : integer
+            save and return the mean square errors in every intervals defined in this variable
+            default is 0 meaning return no partial results 
 
         Returns:
         ---------
         W : array_like
             the learned weights for linear regression 
+        mse : array_like
+            the mean squared error of train and test for each interval
         """
         X_unnormalized = self.X_train
         Y_unnormalized = self.Y_train
@@ -145,6 +159,7 @@ class LR:
             X = X_unnormalized
             Y = Y_unnormalized
 
+        mse = []
         ## incremental learning
         ## change the weights for each data
         for i in range(iter):
@@ -162,11 +177,24 @@ class LR:
             ## update the weights
             W = np.add(W, update_term)
 
+            ## calculate and save the errors every partial interval
+            if (partial != 0) and (i % partial == 0):
+                Y_pred = X @ W
+                train_error = self.__MSE(Y, Y_pred)
+                Y_test_pred = self.predict(W, verbose=False)
+                test_error = self.__MSE(self.Y_test, Y_test_pred)
+                
+                ## add train and test error as a tuple
+                tuple = [train_error, test_error]
+
+                mse.append(tuple)
+
         
         Y_pred = X @ W
-        self.__MSE(Y, Y_pred=Y_pred, note='Training')
+        error = self.__MSE(Y, Y_pred=Y_pred, note='Training')
+        print(f'Mean Squared Error: {error}')
 
-        return W
+        return W, mse
 
     def __normalize_df(self, df):
         """
@@ -239,6 +267,11 @@ class LR:
             the predicted Y value
         note : string
             a string text, for additional notes to be printed
+
+        Returns:
+        --------
+        mse : floating value
+            the mean square error 
         """
 
         error = (Y - Y_pred) ** 2 
@@ -247,7 +280,8 @@ class LR:
 
         if note != '':
             print(note)
-        print(f'Mean Squared Error: {mse}')
+
+        return mse
 
 
 if __name__ == '__main__':
@@ -291,7 +325,8 @@ if __name__ == '__main__':
     initial_weights = np.zeros(len(X_train.columns))
 
     ## the IL stands for Incremental Learning
-    w_IL = lr.solve_incremental(initial_weights)
+    w_IL, mse = lr.solve_incremental(initial_weights, partial = 50)
+
 
     ## prediction of the test set Incremental Learning
     Y_pred_test_IL = lr.predict(w_IL)
@@ -299,7 +334,25 @@ if __name__ == '__main__':
     
     print('Final wights of Incremental Learning')
     print(w)
-    
+
+    print('----------' * DELIMITER_SIZE)
+
+
+    ## if mse array is not empty
+    ## plot each loss of intervals 
+    print("Partial Wights")
+    if mse:
+        print("Plotting Training and Test Loss")
+        mse = np.array(mse)
+
+        fig, axes = plt.subplots(1, 2)
+        axes[0].plot(mse[:,0])
+        axes[0].legend(['Training MSE'])
+
+        axes[1].plot(mse[:, 1])
+        axes[1].legend(['Test MSE'])
+
+        plt.show()    
 
 
 
