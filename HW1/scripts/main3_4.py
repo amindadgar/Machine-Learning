@@ -1,12 +1,11 @@
-## This is a more completed version for main3_2.py 
-## having incremental gradient descent learning for linear regression
+## This is a more completed form of main3_3.py
+## having the polynomial dataset
 
 from ast import arguments
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
-
 
 class dataset:
     
@@ -47,6 +46,32 @@ class dataset:
             df = pd.read_csv('hw1_data/housing/housing_test.txt', sep=' +', names=columns, index_col=False, engine='python')
         else:
             df = pd.read_csv('hw1_data/housing/housing_train.txt', sep=' +', names=columns, index_col=False, engine='python')
+
+        df = self.__extendx(df)
+
+        return df
+
+    def __extendx(self, X):
+        """
+        extend the X dataset and return the linear and two degrees dataset
+
+        Parameters:
+        -----------
+        X : matrix_like
+            our dataset
+
+        Returns:
+        --------
+        extended_X : matrix_like
+            the dataset containing both X and X^2 data
+            Note: extended_X length is double the X 
+        """
+        df = X.copy()
+        ## the power 2
+        df_2 = df.multiply(df)
+
+        df = pd.concat([ df ,df_2], ignore_index= True)
+
 
         return df
 class LR:
@@ -185,6 +210,7 @@ class LR:
                 learning_rate = 2 / np.sqrt(i+1)
             else:
                 learning_rate = learning_rate_mode
+
 
             update_term = np.multiply(learning_rate * update_term, X.iloc[data_index])
 
@@ -393,8 +419,6 @@ if __name__ == '__main__':
         axes[1].plot(xticks ,mse[:, 1])
         axes[1].legend(['Test MSE'])
 
-
-
         learning_rate_equation = ''
         if learning_rate_mode == 0:
             learning_rate_equation = 'Learning Rate: 2/t'
@@ -404,13 +428,11 @@ if __name__ == '__main__':
             learning_rate_equation = f'Static Learning Rate: {learning_rate_mode}'
 
 
-        fig.suptitle(f'Online Linear Regression\n{learning_rate_equation}')
+        fig.suptitle(f'Online Linear Regression with Extended dataset\n{learning_rate_equation}')
 
         file_name = learning_rate_equation.replace(' ', '_')
         file_name = file_name.replace('/', '-')
-        plt.savefig(f'main3_3_{file_name}.jpg')
-
-
+        plt.savefig(f'main3_4_{file_name}.jpg')
         plt.show()    
 
 
