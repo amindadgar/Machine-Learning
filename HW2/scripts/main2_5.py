@@ -2,6 +2,7 @@
 
 from ast import arguments
 from cmath import inf
+from tkinter import Y
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -154,9 +155,9 @@ class LR:
         y : array_like
             the classified value corresponding to each x input
         """
-        y = 1 / (1 + -np.exp(w.T @ x))
+        y = 1 / (1 + np.exp(-w.T @ x))
         ## remove infinity values (caused by zero division)
-        y = np.where(y == inf, 0, y)
+        y = np.where(y == inf, 1, y)
 
         return y
 
@@ -426,6 +427,93 @@ def get_OfflineGD_iterations(string_argument):
 
     return iter
 
+class report:
+    def __init__(self, X, Y, Weights, description) -> None:
+        """
+        initialize the `X` inputs and `Y` labels and `Weights`
+        the `description` is used for the figure file 
+        """
+        self.X = X
+        self.Y = Y
+        self.Weights = Weights
+        self.description = description
+
+        df_scores = self.__ROC_df()
+        self.__export_ROC_Curve(df_scores)
+
+    def __ROC_df(self):
+        """
+        Find the confusion matrix for each threshold (ROC)
+
+        Returns:
+        ---------
+        df_scores : pandas dataframe
+            dataframe contains the confusion matrix for different thresholds
+        """
+
+        scores = []
+        y = self.Y
+        y_pred = self.__LRGD_discriminant_func(self.Weights, self.X.T)
+
+        ## find the values for each threshold
+        ## TP -> True Positive
+        ## TN -> True Negative
+        ## FP -> False Positive
+        ## FN -> False Negative
+        for threshold in np.linspace(0, 1, 50):
+            TP = ((y_pred >= threshold) & (y == 1)).sum()
+            TN = ((y_pred <= threshold) & (y == 0)).sum()
+            FP = ((y_pred > threshold) & (y == 0)).sum()
+            FN = ((y_pred < threshold) & (y == 0)).sum()
+
+            scores.append([threshold, TP, TN, FP, FN])
+        
+        df_cols = ['threshold', 'TP', 'TN', 'FP', 'FN']
+        df_scores = pd.DataFrame(scores, columns=df_cols)
+
+        ## sensitivity and specificity
+        ## True Positive rate = sensitivity
+        df_scores['sens'] = df_scores.TP / (df_scores.TP + df_scores.FN)
+        ## False Positive rate = 1 - specificity
+        df_scores['1-spec'] = df_scores.FP / (df_scores.FP + df_scores.TN)
+        
+        # print(df_scores)
+
+        return df_scores
+
+    def __export_ROC_Curve(self, df_scores):
+        """
+        save the roc curve using the dataframe scores
+        """
+
+        plt.plot(df_scores['sens'], df_scores['1-spec'])
+        plt.title(f'ROC Curve for {self.description}')
+        plt.savefig(f'main_2_5_ROC_{self.description}.png')
+        plt.close()
+
+
+    def __LRGD_discriminant_func(self, w, x):
+        """
+        the discriminant function for Logistic Regression
+        the exponential function is used
+
+        Parameters:
+        ------------
+        w : array_like
+            weights of the function
+        x : array_like
+            the input values
+
+        Returns:
+        ---------
+        y : array_like
+            the classified value corresponding to each x input
+        """
+        y = 1 / (1 + np.exp(-w.T @ x))
+        ## remove infinity values (caused by zero division)
+        y = np.where(y == inf, 1, y)
+
+        return y
 
 if __name__ == '__main__':
     ##################################### Retreiving arguments #####################################
@@ -504,6 +592,7 @@ if __name__ == '__main__':
     print('\n Final wights of Offline Gradient Descent Learning')
     print(weights)
 
+    report(X_train, Y_train, weights, 'Gradient_descent_logisticRegression')
     
     print('----------' * DELIMITER_SIZE)
     print('----------' * DELIMITER_SIZE)
@@ -513,15 +602,17 @@ if __name__ == '__main__':
     ## the initial weights
     initial_weights = np.zeros(len(X_train.columns))
 
-    print('  Training Error')
+    print('  Training Error:')
     ## the IL stands for Incremental Learning
     w_IL, mse = lr.solve_incremental(initial_weights, partial = 50, learning_rate_mode=learning_rate_mode, iter=iterations)
-    print(f'  {mse[-1:]}')
+    print(f'   {mse[-1:]}')
 
-    print('  Test Error')
+    print('  Test Error:')
     ## prediction of the test set Incremental Learning
     Y_pred_test_IL, Y_pred_test_IL_mse = lr.predict(w_IL, method=2)
-    print(f'  {Y_pred_test_IL_mse}')
+    print(f'   {Y_pred_test_IL_mse}')
+    report(X_train, Y_train, w_IL, 'Online_Gradient_descent_logisticRegression')
+
     
 
     print('\n Final wights of Incremental Learning')
@@ -532,7 +623,7 @@ if __name__ == '__main__':
 
     ## plot loss
     if mse:
-        print("Plotting Training and Test Loss")
+        # print("Plotting Training and Test Loss")
         mse = np.array(mse)
 
         xticks = np.linspace(0, iterations, iterations)
@@ -561,7 +652,7 @@ if __name__ == '__main__':
         file_name = learning_rate_equation.replace(' ', '_')
         file_name = file_name.replace('/', '-')
         plt.savefig(f'main2_5_{file_name}.jpg')
-        plt.show()    
+        plt.close()
 
 
 
