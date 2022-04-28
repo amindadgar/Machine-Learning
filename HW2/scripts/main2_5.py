@@ -141,7 +141,7 @@ class LR:
     def __LRGD_discriminant_func(self, w, x):
         """
         the discriminant function for Logistic Regression
-        the exponential function is used
+        the sigmoid function is used
 
         Parameters:
         ------------
@@ -155,11 +155,14 @@ class LR:
         y : array_like
             the classified value corresponding to each x input
         """
-        y = 1 / (1 + np.exp(-w.T @ x))
-        ## remove infinity values (caused by zero division)
-        y = np.where(y == inf, 1, y)
+        try:
+            y = 1 / (1 + np.exp(-w.T @ x))
 
-        return y
+        ## TODO: Check the Overflow (All values cannot set to be zero!)
+        except OverflowError:
+            y=np.zeros(len(x))
+        finally:
+            return np.array(y)
 
 
     def solve_LRGD(self, X, Y, initial_weights, max_iter = 50):
@@ -460,11 +463,11 @@ class report:
         ## TN -> True Negative
         ## FP -> False Positive
         ## FN -> False Negative
-        for threshold in np.linspace(0, 1, 50):
+        for threshold in np.linspace(0, 1, 101):
             TP = ((y_pred >= threshold) & (y == 1)).sum()
             TN = ((y_pred <= threshold) & (y == 0)).sum()
             FP = ((y_pred > threshold) & (y == 0)).sum()
-            FN = ((y_pred < threshold) & (y == 0)).sum()
+            FN = ((y_pred < threshold) & (y == 1)).sum()
 
             scores.append([threshold, TP, TN, FP, FN])
         
@@ -486,7 +489,7 @@ class report:
         save the roc curve using the dataframe scores
         """
 
-        plt.plot(df_scores['sens'], df_scores['1-spec'])
+        plt.plot(df_scores['1-spec'], df_scores['sens'])
         plt.title(f'ROC Curve for {self.description}')
         plt.savefig(f'main_2_5_ROC_{self.description}.png')
         plt.close()
@@ -509,11 +512,12 @@ class report:
         y : array_like
             the classified value corresponding to each x input
         """
-        y = 1 / (1 + np.exp(-w.T @ x))
-        ## remove infinity values (caused by zero division)
-        y = np.where(y == inf, 1, y)
-
-        return y
+        try:
+            y = 1 / (1 + np.exp(-w.T @ x))
+        except OverflowError:
+            y=np.zeros(len(x))
+        finally:
+            return np.array(y)
 
 if __name__ == '__main__':
     ##################################### Retreiving arguments #####################################
@@ -584,15 +588,17 @@ if __name__ == '__main__':
     
     print(' Train Errors: ')
     weights, offline_GD_mse= lr.solve_LRGD(X_train.T, Y_train.T, initial_weights, max_iter=iterations)
-    print('  ', offline_GD_mse[-1:])
+    print('  MSE:', offline_GD_mse[-1:])
     print(' Test Error: ')
     Y_pred_test_Offline, offline_GD_test_mse = lr.predict(weights, method=2)
-    print('  ', offline_GD_mse[-1:])
+    print('  MSE:', offline_GD_mse[-1:])
 
     print('\n Final wights of Offline Gradient Descent Learning')
     print(weights)
 
-    report(X_train, Y_train, weights, 'Gradient_descent_logisticRegression')
+    report(X_train, Y_train, weights, 'Train_Gradient_descent_logisticRegression')
+    report(X_test, Y_test, weights, 'Test_Gradient_descent_logisticRegression')
+
     
     print('----------' * DELIMITER_SIZE)
     print('----------' * DELIMITER_SIZE)
@@ -605,12 +611,12 @@ if __name__ == '__main__':
     print('  Training Error:')
     ## the IL stands for Incremental Learning
     w_IL, mse = lr.solve_incremental(initial_weights, partial = 50, learning_rate_mode=learning_rate_mode, iter=iterations)
-    print(f'   {mse[-1:]}')
+    print(f'   MSE:{mse[-1:]}')
 
     print('  Test Error:')
     ## prediction of the test set Incremental Learning
     Y_pred_test_IL, Y_pred_test_IL_mse = lr.predict(w_IL, method=2)
-    print(f'   {Y_pred_test_IL_mse}')
+    print(f'   MSE:{Y_pred_test_IL_mse}')
     report(X_train, Y_train, w_IL, 'Online_Gradient_descent_logisticRegression')
 
     
@@ -647,7 +653,7 @@ if __name__ == '__main__':
             learning_rate_equation = f'Static Learning Rate: {learning_rate_mode}'
 
 
-        fig.suptitle(f'Online Logistic Regression with Extended dataset\n{learning_rate_equation}')
+        fig.suptitle(f'Logistic Regression\n{learning_rate_equation}')
 
         file_name = learning_rate_equation.replace(' ', '_')
         file_name = file_name.replace('/', '-')
