@@ -545,7 +545,7 @@ if __name__ == '__main__':
     DELIMITER_SIZE = 7
 
     ##################################### START THE PROGRAM #####################################
-    print('Logistic Regression on classification dataset!')
+    print('Logistic Regression on housing dataset!')
 
     print('----------' * DELIMITER_SIZE)
     print('----------' * DELIMITER_SIZE)
@@ -622,7 +622,7 @@ if __name__ == '__main__':
     
 
     print('\n Final wights of Incremental Learning')
-    print(w)
+    print(w_IL.values)
 
     print('----------' * DELIMITER_SIZE)
 
