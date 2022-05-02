@@ -13,7 +13,7 @@ from sklearn.cluster import KMeans
 
 class dataset:
     
-    def __init__(self, phi, beta) -> None:
+    def __init__(self, phi, hyperparameter) -> None:
         """
         the type of phi function would be applied here
         Note that the K-means function would be applied as requested in the question
@@ -25,13 +25,14 @@ class dataset:
             0 -> part 1 of question 3 (the gaussian type kernel)
             1 -> for part 2 of question 3 (the norm value)
             default: 0 -> The gaussian type
-        beta : float
+        hyperparameter : float
             a hyperparameter for kernel function
+            beta or hyperparamer
         """
         assert phi == 0 or phi == 1, "Error: there are just two type of kernel function, zero and one can be entered"
 
         self.__phi = phi
-        self.__beta = beta
+        self.__hyperparameter = hyperparameter
     
 
     def load_datasets(self):
@@ -63,15 +64,15 @@ class dataset:
 
         centers = self.__find_centers_Kmeans(df_trn[columns[:-1]], Y_trn)
         if self.__phi == 0:
-            phi_x_trn = self.__phi_type1(df_trn[columns[:-1]], self.__beta, centers)
-            phi_x_tst = self.__phi_type1(df_tst[columns[:-1]], self.__beta, centers)
+            phi_x_trn = self.__phi_type1(df_trn[columns[:-1]], self.__hyperparameter, centers)
+            phi_x_tst = self.__phi_type1(df_tst[columns[:-1]], self.__hyperparameter, centers)
 
             ## update dataset
             df_trn = phi_x_trn
             df_tst = phi_x_tst
         elif self.__phi == 1:
-            phi_x_trn = self.__phi_type2(df_trn[columns[:-1]], self.__beta, centers)
-            phi_x_tst = self.__phi_type2(df_tst[columns[:-1]], self.__beta, centers)
+            phi_x_trn = self.__phi_type2(df_trn[columns[:-1]], self.__hyperparameter, centers)
+            phi_x_tst = self.__phi_type2(df_tst[columns[:-1]], self.__hyperparameter, centers)
 
             ## update dataset
             df_trn = phi_x_trn
@@ -139,7 +140,7 @@ class dataset:
                 distance = X.iloc[i] - cluster_center
 
                 data = 1 / 1 + (distance @ distance.T)
-                distances_arr.append(data)
+                distances_arr.append(a * data)
 
             phi_x.append(np.exp(distances_arr))
             
@@ -565,7 +566,7 @@ if __name__ == '__main__':
 
     print('Loading Training and Test sets')
     
-    ds = dataset(phi=0, beta=0.00001)
+    ds = dataset(phi=1, hyperparameter=0.00001)
     X_train, X_test, Y_train, Y_test = ds.load_datasets()
 
     print('datasets loaded!')
