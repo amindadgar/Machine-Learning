@@ -150,8 +150,8 @@ class LR:
         ## TODO: Check the Overflow (All values cannot set to be zero!)
         except OverflowError:
             y=np.zeros(len(x))
-        finally:
-            return np.array(y)
+        
+        return np.array(y)
 
 
     def solve_LRGD(self, X, Y, initial_weights, max_iter = 50):
@@ -547,7 +547,7 @@ if __name__ == '__main__':
 
     print('datasets loaded!')
     print(f'Train set head:\n{X_train.head()}')
-    print(f'Test set head :\n{X_test.head()}')
+    # print(f'Test set head :\n{X_test.head()}')
 
     print('----------' * DELIMITER_SIZE)
     print('----------' * DELIMITER_SIZE)
