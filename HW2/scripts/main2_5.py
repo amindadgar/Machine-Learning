@@ -591,7 +591,7 @@ if __name__ == '__main__':
     print('  MSE:', offline_GD_mse[-1:])
     print(' Test Error: ')
     Y_pred_test_Offline, offline_GD_test_mse = lr.predict(weights, method=2)
-    print('  MSE:', offline_GD_mse[-1:])
+    print('  MSE:', offline_GD_test_mse)
 
     print('\n Final wights of Offline Gradient Descent Learning')
     print(weights)
