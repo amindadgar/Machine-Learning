@@ -1,0 +1,2504 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Homework no.3 Machine Learning &#8212; My Jupyter Book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Homework no.4 Machine Learning" href="../HW4/main.html" />
+    <link rel="prev" title="Homework no.2" href="../HW2/main.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">My Jupyter Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Machine Learning Homeworks
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../HW1/README.html">
+   Homework no.1 Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../HW1/main.html">
+     HomeWork #1 Machine Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HW2/main.html">
+   Homework no.2
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Homework no.3 Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../HW4/main.html">
+   Homework no.4 Machine Learning
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/HW3/main.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/HW3/main.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Homework no.3 Machine Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q1">
+   Q1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q2">
+   Q2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q3">
+   Q3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q4">
+   Q4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q5">
+   Q5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q6">
+   Q6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q7">
+   Q7
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-fisher-dimension-reduction-method">
+     (a) Fisher dimension reduction method
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-pca-dimension-reduction-method">
+     (b) PCA dimension reduction method
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Homework no.3 Machine Learning</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Homework no.3 Machine Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q1">
+   Q1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q2">
+   Q2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q3">
+   Q3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q4">
+   Q4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q5">
+   Q5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q6">
+   Q6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q7">
+   Q7
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-fisher-dimension-reduction-method">
+     (a) Fisher dimension reduction method
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-pca-dimension-reduction-method">
+     (b) PCA dimension reduction method
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-no-3-machine-learning">
+<h1>Homework no.3 Machine Learning<a class="headerlink" href="#homework-no-3-machine-learning" title="Permalink to this headline">#</a></h1>
+<p><strong>Stu. Name</strong>: Mohammad Amin Dadgar</p>
+<p><strong>Stu. Id</strong>: 4003624016</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.discriminant_analysis</span> <span class="kn">import</span> <span class="n">LinearDiscriminantAnalysis</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q1">
+<h1>Q1<a class="headerlink" href="#q1" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## read images of 0 to 4 chracters </span>
+<span class="n">image_no0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_0.jpg&#39;</span><span class="p">)</span>
+<span class="n">image_no1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_1.jpg&#39;</span><span class="p">)</span>
+<span class="n">image_no2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_2.jpg&#39;</span><span class="p">)</span>
+<span class="n">image_no3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_3.jpg&#39;</span><span class="p">)</span>
+<span class="n">image_no4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_4.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## show one of the images</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_no0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_4_0.png" src="../_images/main_4_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## take a look at one of the characters</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_no0</span><span class="p">[:</span><span class="mi">16</span><span class="p">,</span> <span class="p">:</span><span class="mi">16</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f5a6524fb80&gt;
+</pre></div>
+</div>
+<img alt="../_images/main_5_1.png" src="../_images/main_5_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## open all images file </span>
+<span class="n">img_numbers1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_0.jpg&#39;</span><span class="p">)</span>
+<span class="n">img_numbers2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_1.jpg&#39;</span><span class="p">)</span>
+<span class="n">img_numbers3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_2.jpg&#39;</span><span class="p">)</span>
+<span class="n">img_numbers4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_3.jpg&#39;</span><span class="p">)</span>
+<span class="n">img_numbers5</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;datasets/usps_4.jpg&#39;</span><span class="p">)</span>
+
+<span class="c1">## iterate over each images and get the valus of them</span>
+<span class="n">images_arr</span> <span class="o">=</span> <span class="p">[</span><span class="n">img_numbers1</span><span class="p">,</span> <span class="n">img_numbers2</span><span class="p">,</span> <span class="n">img_numbers3</span><span class="p">,</span> <span class="n">img_numbers4</span><span class="p">,</span> <span class="n">img_numbers5</span><span class="p">]</span>
+
+<span class="c1">## each image is 16 by 16 pixels</span>
+<span class="n">IMAGE_SIZE_X</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">IMAGE_SIZE_Y</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="c1">## feature space size is the multiplication of width and height</span>
+<span class="n">FEATURE_SPACE_SIZE</span> <span class="o">=</span> <span class="n">IMAGE_SIZE_X</span> <span class="o">*</span> <span class="n">IMAGE_SIZE_Y</span>
+
+<span class="c1">## create pandas columns</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">FEATURE_SPACE_SIZE</span><span class="p">):</span>
+    <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;feature_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">## there must be a label for each image</span>
+<span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+
+<span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## each label for hand writed images is the index of the array</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images_arr</span><span class="p">):</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+    <span class="c1">## x of each image</span>
+    <span class="c1">## iterate over image columns</span>
+    <span class="k">for</span> <span class="n">y_idx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">IMAGE_SIZE_Y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">IMAGE_SIZE_Y</span><span class="p">):</span>
+        <span class="c1">## iterate over image rows</span>
+        <span class="k">for</span> <span class="n">x_idx</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">IMAGE_SIZE_X</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">IMAGE_SIZE_X</span><span class="p">):</span>
+            <span class="c1">## add images using the labels</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="n">x_idx</span><span class="p">:</span> <span class="n">x_idx</span> <span class="o">+</span> <span class="n">IMAGE_SIZE_X</span><span class="p">,</span> <span class="n">y_idx</span><span class="p">:</span> <span class="n">y_idx</span> <span class="o">+</span> <span class="n">IMAGE_SIZE_Y</span><span class="p">])</span>
+            <span class="n">images</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">img</span> <span class="p">)</span>
+
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> 
+            <span class="n">img_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img_series</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+ 
+            <span class="n">dataset_df</span> <span class="o">=</span> <span class="n">dataset_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## save the images dataset into a csv file</span>
+<span class="n">dataset_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;datasets/usps_images.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can see each images saved in arrays</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;number 1&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;number 2&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;number 3&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;number 4&#39;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;number 5&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_10_01.png" src="../_images/main_10_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## if the data was available start from here</span>
+
+<span class="n">dataset_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;datasets/usps_images.csv&#39;</span><span class="p">)</span>
+<span class="n">dataset_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>feature_0</th>
+      <th>feature_1</th>
+      <th>feature_2</th>
+      <th>feature_3</th>
+      <th>feature_4</th>
+      <th>feature_5</th>
+      <th>feature_6</th>
+      <th>feature_7</th>
+      <th>feature_8</th>
+      <th>feature_9</th>
+      <th>...</th>
+      <th>feature_247</th>
+      <th>feature_248</th>
+      <th>feature_249</th>
+      <th>feature_250</th>
+      <th>feature_251</th>
+      <th>feature_252</th>
+      <th>feature_253</th>
+      <th>feature_254</th>
+      <th>feature_255</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>94</td>
+      <td>97</td>
+      <td>0</td>
+      <td>...</td>
+      <td>73</td>
+      <td>10</td>
+      <td>106</td>
+      <td>4</td>
+      <td>3</td>
+      <td>0</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>10</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>24</td>
+      <td>...</td>
+      <td>41</td>
+      <td>38</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>16</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>12</td>
+      <td>0</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>47</td>
+      <td>...</td>
+      <td>128</td>
+      <td>116</td>
+      <td>51</td>
+      <td>17</td>
+      <td>2</td>
+      <td>0</td>
+      <td>8</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>76</td>
+      <td>123</td>
+      <td>...</td>
+      <td>173</td>
+      <td>89</td>
+      <td>24</td>
+      <td>7</td>
+      <td>0</td>
+      <td>13</td>
+      <td>0</td>
+      <td>9</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>14</td>
+      <td>0</td>
+      <td>4</td>
+      <td>7</td>
+      <td>0</td>
+      <td>8</td>
+      <td>6</td>
+      <td>5</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>9</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 257 columns</p>
+</div></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q2">
+<h1>Q2<a class="headerlink" href="#q2" title="Permalink to this headline">#</a></h1>
+<p>Apply Naive Bayes model on dataset. Divide dataset into test and train 10 times randomly and train the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## using the codes we&#39;ve written previously in Homework no.2</span>
+
+<span class="k">def</span> <span class="nf">probability_normal_distribution</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The probability value for normal distribution function</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    ------------</span>
+<span class="sd">    x : array_like</span>
+<span class="sd">        the input data</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        the mean value given</span>
+<span class="sd">    sigma : float</span>
+<span class="sd">        the variance given </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    probability : float</span>
+<span class="sd">        the probability value for the x input values </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## we&#39;ve divided the equation in two parts</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+    
+    <span class="n">probability</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">p2</span>
+    
+    <span class="k">return</span> <span class="n">probability</span>
+    
+<span class="k">def</span> <span class="nf">find_MLE_Normal_distro</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    the maximum likelihood estimation for parameters of normal distribution</span>
+<span class="sd">    the parameters for normal distribution is covariance matrix and mean vector</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    ------------</span>
+<span class="sd">    X : array_like</span>
+<span class="sd">        the X input data vectors</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    ---------</span>
+<span class="sd">    mu : array_like</span>
+<span class="sd">        the means vector</span>
+<span class="sd">    variance : matrix_like</span>
+<span class="sd">        the matrix representing the covariance</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    
+    <span class="n">mu</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    
+    <span class="c1">## some changes was made to the ML estimation of variance</span>
+    <span class="c1">## because of dataset shape</span>
+    <span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">X</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>    
+    
+    <span class="k">return</span> <span class="n">mu</span><span class="p">,</span> <span class="n">variance</span>
+
+<span class="c1">## divide the dataset into 0 and 1 labels</span>
+<span class="k">def</span> <span class="nf">estimate_MLE_NB</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">features_arr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    estimate the Maximum likelihood parameters for naive bayes method</span>
+<span class="sd">    in detail: in naive bayes we have a parameter for each dimension and each class</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    ------------</span>
+<span class="sd">    X : array_like</span>
+<span class="sd">        the input data (a pandas dataframe is prefered)</span>
+<span class="sd">    Y : array_like</span>
+<span class="sd">        the labels for each `X` inputs</span>
+<span class="sd">    features : array_like</span>
+<span class="sd">        the string array for the name of each label in training data (dimensions)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    MLE_estimates : dictionary </span>
+<span class="sd">        the estimated parameters as a dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## dictionary of maximum likelihood estimations</span>
+    <span class="n">MLE_estimates</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features_arr</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+            <span class="n">mu</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">find_MLE_Normal_distro</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="n">label</span><span class="p">][</span><span class="n">feature</span><span class="p">])</span>
+            <span class="c1">## each feature of class estimation</span>
+            <span class="n">MLE_estimates</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">MLE_estimates</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mle_estimates</span> <span class="o">=</span> <span class="n">estimate_MLE_NB</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## for each feature and each class there is a mean and variance</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">mle_estimates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1280
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predict_NB</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">MLE_estimations</span><span class="p">,</span> <span class="n">features_arr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    predict the class Using Naive bayes algorithm</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    ------------</span>
+<span class="sd">    X : pandas dataframe</span>
+<span class="sd">        Input data, `X` and `Y` should be the features</span>
+<span class="sd">    MLE_estimations : dictionary</span>
+<span class="sd">        Maximum likelihood estimations corresponding to each dimension and class as a dictionary with keys like `X,0`</span>
+<span class="sd">        meaning X as first feature and 0 as first class </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    ---------</span>
+<span class="sd">    prediction : array_like</span>
+<span class="sd">        the array representing the probability of each class for data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## the predicted value for each data</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="c1">## initialize Class probability array</span>
+        <span class="n">class_p_arr</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+            <span class="c1">## multiply probability for each dimension</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features_arr</span><span class="p">:</span>
+                <span class="n">mu</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">MLE_estimations</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
+                <span class="c1">## multiplying probabilities with 500 to avoid underflow</span>
+                <span class="n">class_prob</span> <span class="o">=</span> <span class="n">probability_normal_distribution</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="n">feature</span><span class="p">],</span><span class="n">mu</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span> <span class="o">*</span> <span class="mi">500</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">class_prob</span>
+            <span class="n">class_p_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+        <span class="c1">## save each class probability of each data</span>
+        <span class="n">prediction</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">class_p_arr</span><span class="p">)</span>
+    
+    <span class="c1">## for ease of use convert to numpy</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prediction</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">report_model</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find accuracy, precision and recall of a model using its confusion matrix</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    ------------</span>
+<span class="sd">    confusion_matrix : matrix_like</span>
+<span class="sd">        the confusion matrix of the result</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    ---------</span>
+<span class="sd">    accuracy : float</span>
+<span class="sd">        the accuracy of model</span>
+<span class="sd">    precision : float</span>
+<span class="sd">    recall : float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">## False Positive</span>
+    <span class="n">FP</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">## False Negative</span>
+    <span class="n">FN</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">## True Positive</span>
+    <span class="n">TP</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1">## iterate the matrix</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">)):</span>
+        <span class="n">TP</span> <span class="o">+=</span> <span class="n">confusion_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">)):</span>
+            <span class="c1">## Skip True positive values</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+                <span class="c1">## use the row of the matrix </span>
+                <span class="n">FP</span> <span class="o">+=</span> <span class="n">confusion_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+                <span class="c1">## use the column of the matrix </span>
+                <span class="n">FN</span> <span class="o">+=</span> <span class="n">confusion_matrix</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+    
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">TP</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">)</span>
+    <span class="n">precision</span> <span class="o">=</span>  <span class="n">TP</span> <span class="o">/</span> <span class="p">(</span><span class="n">TP</span> <span class="o">+</span> <span class="n">FP</span><span class="p">)</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">TP</span> <span class="o">/</span> <span class="p">(</span><span class="n">TP</span> <span class="o">+</span> <span class="n">FN</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_NB_results</span> <span class="o">=</span> <span class="n">predict_NB</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">mle_estimates</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NB_test_class_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_NB_results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NB_test_pred_confusion_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">NB_test_class_pred</span><span class="p">)</span>
+<span class="n">NB_test_pred_confusion_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[208,   7,   6,   2,   7],
+       [  0, 192,  15,   2,   8],
+       [  3,   7, 219,   3,   6],
+       [  2,  10,  18, 178,   4],
+       [  1,  16,   5,   0, 203]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy,</span><span class="se">\t</span><span class="s1">Precision,</span><span class="se">\t</span><span class="s1">Recall&#39;</span><span class="p">)</span>
+<span class="n">report_model</span><span class="p">(</span><span class="n">NB_test_pred_confusion_mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy,	Precision,	Recall
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8912655971479501, 0.8912655971479501, 0.8912655971479501)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve achieved 89% accuracy, The question requested us to run 10 times with different dataset splits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## save the results of 10 run confusion matrix in an array</span>
+<span class="n">model_NB_resuls_confusion_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## run count</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    
+    <span class="n">mle_estimates</span> <span class="o">=</span> <span class="n">estimate_MLE_NB</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>    
+    <span class="n">test_NB_results</span> <span class="o">=</span> <span class="n">predict_NB</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">mle_estimates</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    
+    <span class="n">pred_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_NB_results</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">pred_result</span><span class="p">)</span>
+    <span class="n">model_NB_resuls_confusion_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Naive Bayes model,RUN </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Naive Bayes model,RUN 0
+Accuracy: 0.8912655971479501
+Precision: 0.8912655971479501
+Recall: 0.8912655971479501
+Naive Bayes model,RUN 1
+Accuracy: 0.9180035650623886
+Precision: 0.9180035650623886
+Recall: 0.9180035650623886
+Naive Bayes model,RUN 2
+Accuracy: 0.9135472370766489
+Precision: 0.9135472370766489
+Recall: 0.9135472370766489
+Naive Bayes model,RUN 3
+Accuracy: 0.9126559714795008
+Precision: 0.9126559714795008
+Recall: 0.9126559714795008
+Naive Bayes model,RUN 4
+Accuracy: 0.9010695187165776
+Precision: 0.9010695187165776
+Recall: 0.9010695187165776
+Naive Bayes model,RUN 5
+Accuracy: 0.9251336898395722
+Precision: 0.9251336898395722
+Recall: 0.9251336898395722
+Naive Bayes model,RUN 6
+Accuracy: 0.9197860962566845
+Precision: 0.9197860962566845
+Recall: 0.9197860962566845
+Naive Bayes model,RUN 7
+Accuracy: 0.9081996434937611
+Precision: 0.9081996434937611
+Recall: 0.9081996434937611
+Naive Bayes model,RUN 8
+Accuracy: 0.9117647058823529
+Precision: 0.9117647058823529
+Recall: 0.9117647058823529
+Naive Bayes model,RUN 9
+Accuracy: 0.9028520499108734
+Precision: 0.9028520499108734
+Recall: 0.9028520499108734
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q3">
+<h1>Q3<a class="headerlink" href="#q3" title="Permalink to this headline">#</a></h1>
+<p>We’ve written the QDA in Homework no.2 So we’ve copied the previous codes, But Some changes are applied for multiclass classification task.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">QDA</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Quadratic Discriminant Analysis Class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hyperparameters</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="n">__</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict the output for the X input</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        X : pandas dataframe</span>
+<span class="sd">            The data to be appended</span>
+<span class="sd">        classes : array_like</span>
+<span class="sd">            array of class labels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">hyperparameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyperparameters</span>
+        <span class="c1">## check if the model is not learned and the parameters is updated</span>
+        <span class="c1">## checking one parameter is enough </span>
+        <span class="c1">## because we are assigning a value to all in learning phase </span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hyperparameters</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="s2">&quot;Error! First fit the model on a dataset then try to predict the values!&quot;</span>
+        
+
+
+        <span class="c1">## Find the probabilities for class 0</span>
+        <span class="c1">## save them in an array for furthur comparisons</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+            <span class="c1">## Find the predicted Class of each data</span>
+            <span class="n">probabilities</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+                <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">hyperparameters</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">)]</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__probability_multivariate_normal_distribution</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                                                        <span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+                <span class="n">probabilities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+            <span class="c1">## Compare and set the class with the highest probability</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span>
+            <span class="c1">## Append the number of Class</span>
+            <span class="n">prediction</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">prediction</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Learning the parameters of the model (Binary Classification model!)</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        X : pandas dataframe</span>
+<span class="sd">            the input values to be learned, With outputs as label</span>
+<span class="sd">        Y : array_like</span>
+<span class="sd">            the label for the data (The binary classification task is here)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">## we need to find the mean and covariance of each class</span>
+
+        <span class="c1">## find hyperparameters of each class </span>
+        <span class="n">hyperparameters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
+            <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_MLE_Normal_distro</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="n">label</span><span class="p">])</span>
+            <span class="n">hyperparameters</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span>
+        
+        <span class="c1">## Save the parameters of the model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hyperparameters</span> <span class="o">=</span> <span class="n">hyperparameters</span>
+            
+    <span class="k">def</span> <span class="nf">__probability_multivariate_normal_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The probability value for multivariate normal distribution function</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        x : array_like</span>
+<span class="sd">            the input data</span>
+<span class="sd">        mu : array_like</span>
+<span class="sd">            the means vector</span>
+<span class="sd">        sigma : matrix_like</span>
+<span class="sd">            the matrix representing the covariance</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        probability : float</span>
+<span class="sd">            the probability value for the x input values </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dimension</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+
+        <span class="c1">## divide the formula into 2 parts</span>
+        <span class="c1">## slogdet is used because of overflow/underflow problems</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="n">dimension</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">slogdet</span><span class="p">(</span><span class="n">sigma</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1">## some changes was made to the equation</span>
+        <span class="c1">## because of dataset shape</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)))</span>
+
+
+        <span class="n">probability</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">p2</span>
+
+        <span class="k">return</span> <span class="n">probability</span>
+
+    <span class="k">def</span> <span class="nf">__find_MLE_Normal_distro</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        the maximum likelihood estimation for parameters of multivatiate normal distribution</span>
+<span class="sd">        the parameters for normal distribution is covariance matrix and mean vector</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        X : array_like</span>
+<span class="sd">            the X input data vectors</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        ---------</span>
+<span class="sd">        mu : array_like</span>
+<span class="sd">            the means vector</span>
+<span class="sd">        covariance : matrix_like</span>
+<span class="sd">            the matrix representing the covariance</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">mu</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1">## some changes was made to the ML estimation of covariance</span>
+        <span class="c1">## because of dataset shape</span>
+        <span class="n">covariance</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">))</span>    
+
+        <span class="k">return</span> <span class="n">mu</span><span class="p">,</span> <span class="n">covariance</span>
+   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_QDA</span> <span class="o">=</span> <span class="n">QDA</span><span class="p">()</span>
+<span class="n">model_QDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_QDA_test_results</span> <span class="o">=</span> <span class="n">model_QDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_QDA_confusion_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">model_QDA_test_results</span><span class="p">)</span>
+<span class="n">model_QDA_confusion_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[192,   6,   8,   2,   0],
+       [  0, 170,  74,   2,   2],
+       [  0,   7, 222,   0,   1],
+       [  0,   6,   8, 209,   0],
+       [  0,   9,   2,   0, 202]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc_QDA</span><span class="p">,</span> <span class="n">precision_QDA</span><span class="p">,</span> <span class="n">recall_QDA</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">model_QDA_confusion_mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;QDA Report:</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc_QDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision_QDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall_QDA</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QDA Report:
+Accuracy: 0.8868092691622104
+Precision: 0.8868092691622104
+Recall: 0.8868092691622104
+</pre></div>
+</div>
+</div>
+</div>
+<p>We achieved about 89 percent accuracy for one run. The question asked us to run 10 times on different splits of dataset and report the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## save the results of 10 run confusion matrix in an array</span>
+<span class="n">model_QDA_resuls_confusion_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## run count</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">model_QDA</span> <span class="o">=</span> <span class="n">QDA</span><span class="p">()</span>
+    <span class="n">model_QDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model_QDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">])</span>
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">model_QDA_test_results</span><span class="p">)</span>
+    <span class="n">model_QDA_resuls_confusion_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;QDA model,RUN </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QDA model,RUN 0
+Accuracy: 0.20320855614973263
+Precision: 0.20320855614973263
+Recall: 0.20320855614973263
+QDA model,RUN 1
+Accuracy: 0.20677361853832443
+Precision: 0.20677361853832443
+Recall: 0.20677361853832443
+QDA model,RUN 2
+Accuracy: 0.21390374331550802
+Precision: 0.21390374331550802
+Recall: 0.21390374331550802
+QDA model,RUN 3
+Accuracy: 0.20766488413547238
+Precision: 0.20766488413547238
+Recall: 0.20766488413547238
+QDA model,RUN 4
+Accuracy: 0.18449197860962566
+Precision: 0.18449197860962566
+Recall: 0.18449197860962566
+QDA model,RUN 5
+Accuracy: 0.20053475935828877
+Precision: 0.20053475935828877
+Recall: 0.20053475935828877
+QDA model,RUN 6
+Accuracy: 0.20320855614973263
+Precision: 0.20320855614973263
+Recall: 0.20320855614973263
+QDA model,RUN 7
+Accuracy: 0.22103386809269163
+Precision: 0.22103386809269163
+Recall: 0.22103386809269163
+QDA model,RUN 8
+Accuracy: 0.19875222816399288
+Precision: 0.19875222816399288
+Recall: 0.19875222816399288
+QDA model,RUN 9
+Accuracy: 0.8868092691622104
+Precision: 0.8868092691622104
+Recall: 0.8868092691622104
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q4">
+<h1>Q4<a class="headerlink" href="#q4" title="Permalink to this headline">#</a></h1>
+<p>Using Linear Discriminant Analysis (A version of QDA). It uses same covariance matrix for all data.</p>
+<p>For this fact we find one covariance matrix for all data and mean vectors for each class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LDA</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Linear Discriminant Analysis Class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mu_vectors</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">covariance</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="n">__</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict the output for the X input</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        X : pandas dataframe</span>
+<span class="sd">            The data to be appended</span>
+<span class="sd">        classes : array_like</span>
+<span class="sd">            array of class labels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mu_vectors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu_vectors</span>
+        <span class="n">covariance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariance</span>
+        
+        <span class="c1">## check if the model is not learned and the parameters is updated</span>
+        <span class="c1">## checking one parameter is enough </span>
+        <span class="c1">## because we are assigning a value to all in learning phase </span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mu_vectors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="s2">&quot;Error! First fit the model on a dataset then try to predict the values!&quot;</span>
+
+        <span class="c1">## Find the probabilities for class 0</span>
+        <span class="c1">## save them in an array for furthur comparisons</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+            <span class="c1">## Find the predicted Class of each data</span>
+            <span class="n">probabilities</span> <span class="o">=</span> <span class="p">[]</span>
+            
+            <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu_vectors</span><span class="p">)):</span>
+                <span class="n">mu</span> <span class="o">=</span> <span class="n">mu_vectors</span><span class="p">[</span><span class="n">label</span><span class="p">]</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__probability_multivariate_normal_distribution</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                                                        <span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">covariance</span><span class="p">)</span>
+                <span class="n">probabilities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+            <span class="c1">## Compare and set the class with the highest probability</span>
+            <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probabilities</span><span class="p">)</span>
+            <span class="c1">## Append the number of Class</span>
+            <span class="n">prediction</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+        
+        <span class="k">return</span> <span class="n">prediction</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Learning the parameters of the model (Binary Classification model!)</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        X : pandas dataframe</span>
+<span class="sd">            the input values to be learned, With outputs as label</span>
+<span class="sd">        Y : array_like</span>
+<span class="sd">            the label for the data (The binary classification task is here)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">## we need to find the mean of each class and a covariance matrix for all of the data</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">covariance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_MLE_Normal_distro</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> 
+        
+        <span class="c1">## find mu vectors of each class </span>
+        <span class="n">mu_vectors</span> <span class="o">=</span> <span class="p">[]</span> 
+        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y</span><span class="p">):</span>
+            <span class="n">mu</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_MLE_Normal_distro</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y</span> <span class="o">==</span> <span class="n">label</span><span class="p">])</span>
+            <span class="n">mu_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+        
+        <span class="c1">## Save the parameters of the model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mu_vectors</span> <span class="o">=</span> <span class="n">mu_vectors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">covariance</span> <span class="o">=</span> <span class="n">covariance</span>
+            
+    <span class="k">def</span> <span class="nf">__probability_multivariate_normal_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The probability value for multivariate normal distribution function</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        x : array_like</span>
+<span class="sd">            the input data</span>
+<span class="sd">        mu : array_like</span>
+<span class="sd">            the means vector</span>
+<span class="sd">        sigma : matrix_like</span>
+<span class="sd">            the matrix representing the covariance</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        --------</span>
+<span class="sd">        probability : float</span>
+<span class="sd">            the probability value for the x input values </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dimension</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+
+        <span class="c1">## divide the formula into 2 parts</span>
+        <span class="c1">## slogdet is used because of overflow/underflow problems</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="n">dimension</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">slogdet</span><span class="p">(</span><span class="n">sigma</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1">## some changes was made to the equation</span>
+        <span class="c1">## because of dataset shape</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span> <span class="o">@</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)))</span>
+
+
+        <span class="n">probability</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">*</span> <span class="n">p2</span>
+
+        <span class="k">return</span> <span class="n">probability</span>
+
+    <span class="k">def</span> <span class="nf">__find_MLE_Normal_distro</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        the maximum likelihood estimation for parameters of multivatiate normal distribution</span>
+<span class="sd">        the parameters for normal distribution is covariance matrix and mean vector</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        X : array_like</span>
+<span class="sd">            the X input data vectors</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        ---------</span>
+<span class="sd">        mu : array_like</span>
+<span class="sd">            the means vector</span>
+<span class="sd">        covariance : matrix_like</span>
+<span class="sd">            the matrix representing the covariance</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">mu</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1">## some changes was made to the ML estimation of covariance</span>
+        <span class="c1">## because of dataset shape</span>
+        <span class="n">covariance</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">X</span><span class="o">-</span><span class="n">mu</span><span class="p">))</span>    
+
+        <span class="k">return</span> <span class="n">mu</span><span class="p">,</span> <span class="n">covariance</span>
+   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_LDA</span> <span class="o">=</span> <span class="n">LDA</span><span class="p">()</span>
+<span class="n">model_LDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+<span class="n">model_LDA_results</span> <span class="o">=</span> <span class="n">model_LDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_LDA_confusion_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span> <span class="p">,</span><span class="n">model_LDA_results</span><span class="p">)</span>
+<span class="n">model_LDA_confusion_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[195,   9,   2,   2,   0],
+       [  0, 241,   1,   4,   2],
+       [  2,  18, 204,   1,   5],
+       [  1,  12,   8, 201,   1],
+       [  0,  20,   4,   0, 189]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc_LDA</span><span class="p">,</span> <span class="n">precision_LDA</span><span class="p">,</span> <span class="n">recall_LDA</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">model_LDA_confusion_mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA Report:</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc_LDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision_LDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall_LDA</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA Report:
+Accuracy: 0.9180035650623886
+Precision: 0.9180035650623886
+Recall: 0.9180035650623886
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve achieved 91% accuracy. This shows the LDA model can perform better than the more complex models as QDA and Naive Bayes.</p>
+<p>Now we’re going to run 10 times the LDA model with different data splits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## save the results of 10 run confusion matrix in an array</span>
+<span class="n">model_LDA_resuls_confusion_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## run count</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">model_LDA</span> <span class="o">=</span> <span class="n">LDA</span><span class="p">()</span>
+    <span class="n">model_LDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model_LDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+    <span class="n">model_LDA_resuls_confusion_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA model,RUN </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA model,RUN 0
+Accuracy: 0.9171122994652406
+Precision: 0.9171122994652406
+Recall: 0.9171122994652406
+LDA model,RUN 1
+Accuracy: 0.9340463458110517
+Precision: 0.9340463458110517
+Recall: 0.9340463458110517
+LDA model,RUN 2
+Accuracy: 0.9206773618538324
+Precision: 0.9206773618538324
+Recall: 0.9206773618538324
+LDA model,RUN 3
+Accuracy: 0.9313725490196079
+Precision: 0.9313725490196079
+Recall: 0.9313725490196079
+LDA model,RUN 4
+Accuracy: 0.9215686274509803
+Precision: 0.9215686274509803
+Recall: 0.9215686274509803
+LDA model,RUN 5
+Accuracy: 0.9331550802139037
+Precision: 0.9331550802139037
+Recall: 0.9331550802139037
+LDA model,RUN 6
+Accuracy: 0.9340463458110517
+Precision: 0.9340463458110517
+Recall: 0.9340463458110517
+LDA model,RUN 7
+Accuracy: 0.9278074866310161
+Precision: 0.9278074866310161
+Recall: 0.9278074866310161
+LDA model,RUN 8
+Accuracy: 0.93048128342246
+Precision: 0.93048128342246
+Recall: 0.93048128342246
+LDA model,RUN 9
+Accuracy: 0.9180035650623886
+Precision: 0.9180035650623886
+Recall: 0.9180035650623886
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q5">
+<h1>Q5<a class="headerlink" href="#q5" title="Permalink to this headline">#</a></h1>
+<p>Now we’re going to use decision tree (DT) classifier for characters dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tree</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">)</span>
+<span class="n">model_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeClassifier()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some parameters are set as default, so let’s have a look at them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tree</span><span class="o">.</span><span class="n">get_params</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ccp_alpha&#39;: 0.0,
+ &#39;class_weight&#39;: None,
+ &#39;criterion&#39;: &#39;gini&#39;,
+ &#39;max_depth&#39;: None,
+ &#39;max_features&#39;: None,
+ &#39;max_leaf_nodes&#39;: None,
+ &#39;min_impurity_decrease&#39;: 0.0,
+ &#39;min_samples_leaf&#39;: 1,
+ &#39;min_samples_split&#39;: 2,
+ &#39;min_weight_fraction_leaf&#39;: 0.0,
+ &#39;random_state&#39;: None,
+ &#39;splitter&#39;: &#39;best&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## plotting tree with maximum depth of 5 </span>
+<span class="c1">## because our tree is big we have limited it to 5 </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">model_tree</span><span class="p">,</span>
+               <span class="n">feature_names</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+              <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">impurity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span>
+              <span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Q5_tree_plot.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/main_45_0.png" src="../_images/main_45_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tree_test_pred</span> <span class="o">=</span> <span class="n">model_tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tree_conf_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">model_tree_test_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy,</span><span class="se">\t</span><span class="s1">Precision,</span><span class="se">\t</span><span class="s1">Recall&#39;</span><span class="p">)</span>
+<span class="n">report_model</span><span class="p">(</span><span class="n">model_tree_conf_mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy,	Precision,	Recall
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8877005347593583, 0.8877005347593583, 0.8877005347593583)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## running the model 10 times</span>
+
+<span class="c1">## save the results of 10 run confusion matrix in an array</span>
+<span class="n">model_tree_resuls_confusion_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## run count</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">model_tree</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+    <span class="n">model_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model_tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+    <span class="n">model_tree_resuls_confusion_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA model,RUN </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA model,RUN 0
+Accuracy: 0.8841354723707665
+Precision: 0.8841354723707665
+Recall: 0.8841354723707665
+LDA model,RUN 1
+Accuracy: 0.8787878787878788
+Precision: 0.8787878787878788
+Recall: 0.8787878787878788
+LDA model,RUN 2
+Accuracy: 0.9099821746880571
+Precision: 0.9099821746880571
+Recall: 0.9099821746880571
+LDA model,RUN 3
+Accuracy: 0.8894830659536542
+Precision: 0.8894830659536542
+Recall: 0.8894830659536542
+LDA model,RUN 4
+Accuracy: 0.8868092691622104
+Precision: 0.8868092691622104
+Recall: 0.8868092691622104
+LDA model,RUN 5
+Accuracy: 0.8921568627450981
+Precision: 0.8921568627450981
+Recall: 0.8921568627450981
+LDA model,RUN 6
+Accuracy: 0.8761140819964349
+Precision: 0.8761140819964349
+Recall: 0.8761140819964349
+LDA model,RUN 7
+Accuracy: 0.8832442067736186
+Precision: 0.8832442067736186
+Recall: 0.8832442067736186
+LDA model,RUN 8
+Accuracy: 0.8859180035650623
+Precision: 0.8859180035650623
+Recall: 0.8859180035650623
+LDA model,RUN 9
+Accuracy: 0.8832442067736186
+Precision: 0.8832442067736186
+Recall: 0.8832442067736186
+</pre></div>
+</div>
+</div>
+</div>
+<p>In 10 runs we saw that the model achieved lower performance than the LDA model.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q6">
+<h1>Q6<a class="headerlink" href="#q6" title="Permalink to this headline">#</a></h1>
+<p>Using SVM model for dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_svm</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
+<span class="c1">## having a look at default parameters </span>
+<span class="n">model_svm</span><span class="o">.</span><span class="n">get_params</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;C&#39;: 1.0,
+ &#39;break_ties&#39;: False,
+ &#39;cache_size&#39;: 200,
+ &#39;class_weight&#39;: None,
+ &#39;coef0&#39;: 0.0,
+ &#39;decision_function_shape&#39;: &#39;ovr&#39;,
+ &#39;degree&#39;: 3,
+ &#39;gamma&#39;: &#39;scale&#39;,
+ &#39;kernel&#39;: &#39;rbf&#39;,
+ &#39;max_iter&#39;: -1,
+ &#39;probability&#39;: False,
+ &#39;random_state&#39;: None,
+ &#39;shrinking&#39;: True,
+ &#39;tol&#39;: 0.001,
+ &#39;verbose&#39;: False}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+<span class="n">model_svm_test_pred</span> <span class="o">=</span> <span class="n">model_svm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_confusion_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">model_svm_test_pred</span><span class="p">)</span>
+<span class="n">svm_confusion_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[202,   6,   0,   0,   0],
+       [  0, 248,   0,   0,   0],
+       [  1,   7, 220,   0,   2],
+       [  0,   7,   0, 216,   0],
+       [  0,   9,   0,   0, 204]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy,</span><span class="se">\t</span><span class="s1">Precision,</span><span class="se">\t</span><span class="s1">Recall&#39;</span><span class="p">)</span>
+<span class="n">report_model</span><span class="p">(</span><span class="n">svm_confusion_mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy,	Precision,	Recall
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9714795008912656, 0.9714795008912656, 0.9714795008912656)
+</pre></div>
+</div>
+</div>
+</div>
+<p>we can see that SVM achived much higher performance on test set than the other models we tried in this excercises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## running the model 10 times</span>
+
+<span class="c1">## save the results of 10 run confusion matrix in an array</span>
+<span class="n">model_svm_resuls_confusion_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## run count</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">model_svm</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
+    <span class="n">model_svm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model_svm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+    <span class="n">model_svm_resuls_confusion_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA model,RUN </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA model,RUN 0
+Accuracy: 0.9750445632798574
+Precision: 0.9750445632798574
+Recall: 0.9750445632798574
+LDA model,RUN 1
+Accuracy: 0.9812834224598931
+Precision: 0.9812834224598931
+Recall: 0.9812834224598931
+LDA model,RUN 2
+Accuracy: 0.9812834224598931
+Precision: 0.9812834224598931
+Recall: 0.9812834224598931
+LDA model,RUN 3
+Accuracy: 0.9786096256684492
+Precision: 0.9786096256684492
+Recall: 0.9786096256684492
+LDA model,RUN 4
+Accuracy: 0.9714795008912656
+Precision: 0.9714795008912656
+Recall: 0.9714795008912656
+LDA model,RUN 5
+Accuracy: 0.9759358288770054
+Precision: 0.9759358288770054
+Recall: 0.9759358288770054
+LDA model,RUN 6
+Accuracy: 0.9786096256684492
+Precision: 0.9786096256684492
+Recall: 0.9786096256684492
+LDA model,RUN 7
+Accuracy: 0.9803921568627451
+Precision: 0.9803921568627451
+Recall: 0.9803921568627451
+LDA model,RUN 8
+Accuracy: 0.9795008912655971
+Precision: 0.9795008912655971
+Recall: 0.9795008912655971
+LDA model,RUN 9
+Accuracy: 0.9714795008912656
+Precision: 0.9714795008912656
+Recall: 0.9714795008912656
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q7">
+<h1>Q7<a class="headerlink" href="#q7" title="Permalink to this headline">#</a></h1>
+<p>Apply PCA and Fisher dimension reductinon methods on data and then use LDA model to be trained.</p>
+<section id="a-fisher-dimension-reduction-method">
+<h2>(a) Fisher dimension reduction method<a class="headerlink" href="#a-fisher-dimension-reduction-method" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_dataset</span> <span class="o">=</span> <span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">Y_dataset</span> <span class="o">=</span> <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fishers_dimension_reduction</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    reduce dimension of dataset using fishers method (Or LDA in other names)</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_components</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        n_components : float</span>
+<span class="sd">            can be a number between 0 and 1 that represents the data loss, default is `0.95` means the data loss is 0.05</span>
+<span class="sd">            can be a number more than 1 that represents how many dimensions to save</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">n_components</span>
+        
+        <span class="c1">## the matrix that transform data into new dimensionality</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformation_matrix</span> <span class="o">=</span> <span class="kc">None</span>
+        
+    <span class="k">def</span> <span class="nf">__find_most_discriminator_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eigvalues</span><span class="p">,</span> <span class="n">eigvectors</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        find the most discriminator dimensions by sorting eigenvalues and returning the best eigenvectors corresponding to the highest eigen values</span>
+<span class="sd">        rate is used to how much to save the dimensions</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        eigvalues : 1D array</span>
+<span class="sd">            array of eigen values</span>
+<span class="sd">        eigvectors : 2D array</span>
+<span class="sd">            array of eigen vectors</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        ---------</span>
+<span class="sd">        eig_vectors : matrix</span>
+<span class="sd">            the most discriminative eigen vectors</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="mi">0</span><span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_components</span> <span class="o">&lt;=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">eig_vectors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_the_most_discriminator_floating</span><span class="p">(</span><span class="n">eigvalues</span><span class="p">,</span> <span class="n">eigvectors</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">eig_vectors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sort_eigvalues_corresponding_eigenvectors</span><span class="p">(</span><span class="n">eigvalues</span><span class="p">,</span> <span class="n">eigvectors</span><span class="p">)</span>
+            <span class="n">eig_vectors</span> <span class="o">=</span> <span class="n">eig_vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_components</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">eig_vectors</span>
+    
+    <span class="k">def</span> <span class="nf">__find_the_most_discriminator_floating</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eigvalues</span><span class="p">,</span> <span class="n">eigvectors</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        find the most discriminator dimension when the n_components is a floating point between 0 and 1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">## apply pandas dataframe to have an index corresponding to each row</span>
+        <span class="n">eigvalues_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">eigvalues</span><span class="p">)</span>
+        <span class="n">sorted_indexes</span> <span class="o">=</span> <span class="n">eigvalues_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+
+
+        
+        <span class="n">sorted_eigvectors_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__sort_eigvalues_corresponding_eigenvectors</span><span class="p">(</span><span class="n">eig_values</span><span class="p">,</span> <span class="n">eig_vectors</span><span class="p">)</span>
+        <span class="c1">## iterate over data until it reached the threshold</span>
+        <span class="n">threshold</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">## initialize the range of data </span>
+        <span class="n">dimension_range</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_eigvectors_df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">threshold</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">eigvalues_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_indexes</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]]))</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">eigvalues</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">threshold</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_components</span><span class="p">:</span>
+                <span class="n">dimension_range</span> <span class="o">=</span> <span class="n">idx</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">sorted_eigvectors_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">dimension_range</span><span class="p">]</span>
+    
+    <span class="k">def</span> <span class="nf">__sort_eigvalues_corresponding_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eigvalues</span><span class="p">,</span> <span class="n">eigvectors</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sort the eigenvectors by the highest eigenvalues</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        eigvalues : array</span>
+<span class="sd">            array of eigenvalues</span>
+<span class="sd">        eigvectors : matrix</span>
+<span class="sd">            array of eigenvectors corresponding to each eigenvalues</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        ---------</span>
+<span class="sd">        sorted_eigenvectors : pandas dataframe</span>
+<span class="sd">            dataframe of eigenvectors related to Descending sorted eigenvalues</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">## apply pandas dataframe to have an index corresponding to each row</span>
+        <span class="n">eigvalues_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">eigvalues</span><span class="p">)</span>
+        
+        <span class="c1">## get the sorted eigen values indexes</span>
+        <span class="n">sorted_indexes</span> <span class="o">=</span> <span class="n">eigvalues_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+
+
+        <span class="c1">## convert eigenvectors to pandas to find the best of it corresponding to highest eigenvalues</span>
+        <span class="n">eigvectors_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">eigvectors</span><span class="p">)</span>
+        <span class="c1">## and then find the corresponding eigen vectors</span>
+        <span class="n">sorted_eigvectors_df</span> <span class="o">=</span> <span class="n">eigvectors_df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">sorted_indexes</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">sorted_eigvectors_df</span>
+
+        
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_data</span><span class="p">,</span> <span class="n">classes_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        fit the parameters for dimensionality reduction</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        X_data : matrix or array</span>
+<span class="sd">            the X classes as a matrix or array</span>
+<span class="sd">            array can only represent one feature but matrix would represent more than one feature</span>
+<span class="sd">        classes_name : array</span>
+<span class="sd">            array of classes label (must be unique)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1">## finding between class variation</span>
+
+        <span class="c1">## initialize the variable with zero values</span>
+        <span class="n">between_class_variation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">))</span>
+
+        <span class="c1">## find the global mean</span>
+        <span class="n">dataset_mean</span> <span class="o">=</span> <span class="n">X_data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+        <span class="c1">## iterate for each class </span>
+        <span class="k">for</span> <span class="n">class_num</span> <span class="ow">in</span> <span class="n">classes_name</span><span class="p">:</span>
+                <span class="c1">## find the local mean (Each class mean)</span>
+                <span class="c1">## and get the difference</span>
+                <span class="n">difference</span> <span class="o">=</span> <span class="n">X_data</span><span class="p">[</span><span class="n">Y_dataset</span> <span class="o">==</span> <span class="n">class_num</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">dataset_mean</span>
+                <span class="n">difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span>
+                <span class="n">between_class_variation</span> <span class="o">+=</span> <span class="n">difference</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">difference</span>
+                
+        <span class="c1">## combining both matrixes</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">within_class_variation</span><span class="p">)</span> <span class="o">@</span> <span class="n">between_class_variation</span>
+
+        <span class="n">eig_values</span><span class="p">,</span> <span class="n">eig_vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+        
+        <span class="c1">## find the transformation matrix </span>
+        <span class="n">U</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__find_most_discriminator_eigenvectors</span><span class="p">(</span><span class="n">eig_values</span><span class="p">,</span> <span class="n">eig_vectors</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformation_matrix</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">T</span>
+        
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        transform dataset into new reduced dimensionality</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        ------------</span>
+<span class="sd">        X_data : matrix_like</span>
+<span class="sd">            the X classes as a matrix or array</span>
+<span class="sd">            matrix would represent more than one feature </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        ---------</span>
+<span class="sd">        X_reduced : matrix_like</span>
+<span class="sd">            the reduced dimension X_data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X_reduced</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transformation_matrix</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        
+        <span class="k">return</span> <span class="n">X_reduced</span>
+    
+    <span class="k">def</span> <span class="nf">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_data</span><span class="p">,</span> <span class="n">classes_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        fit on data and then return the reduced version of X_data</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        X_data : matrix or array</span>
+<span class="sd">            the X classes as a matrix or array</span>
+<span class="sd">            array can only represent one feature but matrix would represent more than one feature</span>
+<span class="sd">        classes_name : array</span>
+<span class="sd">            array of classes label (must be unique)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">        ---------</span>
+<span class="sd">        X_reduced : matrix_like</span>
+<span class="sd">            the reduced dimension X_data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_data</span><span class="p">,</span> <span class="n">classes_name</span><span class="p">)</span>
+        <span class="n">X_reduced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_data</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">X_reduced</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fisher_reduction</span> <span class="o">=</span> <span class="n">Fishers_dimension_reduction</span><span class="p">()</span>
+<span class="n">X_reduced_dataset</span> <span class="o">=</span> <span class="n">fisher_reduction</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_dataset</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">Y_dataset</span><span class="p">))</span>
+<span class="n">X_reduced_dataset</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_reduced_dataset</span><span class="p">,</span>
+                                                    <span class="n">Y_dataset</span><span class="p">,</span> 
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## reduce the test data</span>
+<span class="n">X_reduced_test</span> <span class="o">=</span> <span class="n">fisher_reduction</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">X_reduced_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1122, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_LDA</span> <span class="o">=</span> <span class="n">LDA</span><span class="p">()</span>
+<span class="n">model_LDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+<span class="n">model_LDA_results</span> <span class="o">=</span> <span class="n">model_LDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_LDA_confusion_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span> <span class="p">,</span><span class="n">model_LDA_results</span><span class="p">)</span>
+<span class="n">model_LDA_confusion_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  0,   2, 228,   0,   0],
+       [  2,  12, 203,   0,   0],
+       [  0,   5, 233,   0,   0],
+       [  5,  13, 194,   0,   0],
+       [  1,  30, 194,   0,   0]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc_LDA</span><span class="p">,</span> <span class="n">precision_LDA</span><span class="p">,</span> <span class="n">recall_LDA</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">model_LDA_confusion_mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA Report:</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc_LDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision_LDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall_LDA</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA Report:
+Accuracy: 0.21836007130124777
+Precision: 0.21836007130124777
+Recall: 0.21836007130124777
+</pre></div>
+</div>
+</div>
+</div>
+<p>With 3 dimensions extracted using Fishers method the results are highly low!</p>
+<p>Now we will explore the dataset more and have a more deep look at the fishers method performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## save the results of 10 run confusion matrix in an array</span>
+<span class="n">model_LDA_resuls_confusion_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## run count</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_reduced_dataset</span><span class="p">,</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">model_LDA</span> <span class="o">=</span> <span class="n">LDA</span><span class="p">()</span>
+    <span class="n">model_LDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model_LDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+    <span class="n">model_LDA_resuls_confusion_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA model,RUN </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA model,RUN 0
+Accuracy: 0.21836007130124777
+Precision: 0.21836007130124777
+Recall: 0.21836007130124777
+LDA model,RUN 1
+Accuracy: 0.3324420677361854
+Precision: 0.3324420677361854
+Recall: 0.3324420677361854
+LDA model,RUN 2
+Accuracy: 0.30124777183600715
+Precision: 0.30124777183600715
+Recall: 0.30124777183600715
+LDA model,RUN 3
+Accuracy: 0.2103386809269162
+Precision: 0.2103386809269162
+Recall: 0.2103386809269162
+LDA model,RUN 4
+Accuracy: 0.1836007130124777
+Precision: 0.1836007130124777
+Recall: 0.1836007130124777
+LDA model,RUN 5
+Accuracy: 0.2014260249554367
+Precision: 0.2014260249554367
+Recall: 0.2014260249554367
+LDA model,RUN 6
+Accuracy: 0.19875222816399288
+Precision: 0.19875222816399288
+Recall: 0.19875222816399288
+LDA model,RUN 7
+Accuracy: 0.20409982174688057
+Precision: 0.20409982174688057
+Recall: 0.20409982174688057
+LDA model,RUN 8
+Accuracy: 0.25668449197860965
+Precision: 0.25668449197860965
+Recall: 0.25668449197860965
+LDA model,RUN 9
+Accuracy: 0.20677361853832443
+Precision: 0.20677361853832443
+Recall: 0.20677361853832443
+</pre></div>
+</div>
+</div>
+</div>
+<p>It seems that Fisher’s method is not working good at all here because it just produced 33% accuracy in the best situation.</p>
+</section>
+<section id="b-pca-dimension-reduction-method">
+<h2>(b) PCA dimension reduction method<a class="headerlink" href="#b-pca-dimension-reduction-method" title="Permalink to this headline">#</a></h2>
+<p>Saving 95% of features and whitening the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_dataset</span> <span class="o">=</span> <span class="n">dataset_df</span><span class="p">[</span><span class="n">dataset_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">Y_dataset</span> <span class="o">=</span> <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span><span class="n">whiten</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">svd_solver</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_dataset</span><span class="p">)</span>
+<span class="n">X_dataset_reduced</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It seems that 95% of data variance is in 100 of the features. the other 5 percent is in the other 150 features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_dataset_reduced</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5610, 100)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## have a look at variances</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([293331.87410841, 158119.05900527, 137937.08914476, 126798.433732  ,
+       103117.73500377,  89887.35327351,  77749.6914955 ,  50172.87297051,
+        45807.33462414,  38951.06624323,  35248.39082542,  32714.42323582,
+        30933.88036519,  30225.16754704,  26959.18443678,  25179.5259855 ,
+        23453.45575095,  22159.41485451,  20569.87854983,  18919.04164789,
+        18335.37124556,  17894.17986046,  16274.90525257,  15626.73732931,
+        14930.51616494,  14487.07813265,  13935.53954212,  12847.4915951 ,
+        12200.14742319,  11851.5244597 ,  11608.67280995,  11027.93554689,
+        10438.56099896,   9918.99381511,   9825.26443153,   9610.42316895,
+         9026.15107666,   8475.19580363,   8112.47976397,   7909.35264363,
+         7549.8558876 ,   7382.37198072,   7030.60232858,   6771.14100226,
+         6573.08342079,   6535.76291499,   6405.82355752,   6026.2193113 ,
+         5781.87826222,   5656.70352764,   5575.56618965,   5327.63682127,
+         5253.24969877,   4977.51338608,   4706.2775176 ,   4633.88445415,
+         4486.97080191,   4467.75060286,   4204.5685125 ,   4162.9440353 ,
+         4060.79606155,   4009.33727359,   3846.56066471,   3825.70407122,
+         3559.88023113,   3541.97802725,   3315.23366661,   3258.86044577,
+         3220.69698483,   3103.2676193 ,   3066.28810666,   2964.10719027,
+         2889.14618471,   2880.95858029,   2865.29297507,   2768.93135882,
+         2674.50137337,   2604.48325481,   2566.29760112,   2474.23296026,
+         2414.15770602,   2333.88972106,   2320.19246632,   2276.48904847,
+         2209.24235496,   2158.48712296,   2127.15032751,   2086.65998292,
+         2053.00585354,   2034.42923726,   1961.99080637,   1959.03813319,
+         1860.68198017,   1845.81583079,   1823.90922216,   1789.15784318,
+         1745.06494381,   1722.43788405,   1710.24871538,   1665.05464137])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_dataset_reduced</span><span class="p">,</span>
+                                                    <span class="n">Y_dataset</span><span class="p">,</span> 
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_LDA</span> <span class="o">=</span> <span class="n">LDA</span><span class="p">()</span>
+<span class="n">model_LDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+<span class="n">model_LDA_results</span> <span class="o">=</span> <span class="n">model_LDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_LDA_confusion_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span> <span class="p">,</span><span class="n">model_LDA_results</span><span class="p">)</span>
+<span class="n">model_LDA_confusion_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[194,   7,  24,   1,   4],
+       [  0, 204,   9,   2,   2],
+       [  1,   6, 231,   0,   0],
+       [  1,   5,  25, 181,   0],
+       [  0,  32,  15,   0, 178]], dtype=int64)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc_LDA</span><span class="p">,</span> <span class="n">precision_LDA</span><span class="p">,</span> <span class="n">recall_LDA</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">model_LDA_confusion_mat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA Report:</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc_LDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision_LDA</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall_LDA</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA Report:
+Accuracy: 0.8805704099821747
+Precision: 0.8805704099821747
+Recall: 0.8805704099821747
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## save the results of 10 run confusion matrix in an array</span>
+<span class="n">model_LDA_resuls_confusion_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">## run count</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_dataset_reduced</span><span class="p">,</span> 
+                                                    <span class="n">dataset_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+    <span class="n">model_LDA</span> <span class="o">=</span> <span class="n">LDA</span><span class="p">()</span>
+    <span class="n">model_LDA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model_LDA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+    <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+    <span class="n">model_LDA_resuls_confusion_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    
+    <span class="n">acc</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span> <span class="o">=</span> <span class="n">report_model</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;LDA model,RUN </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="se">\n</span><span class="s1">Accuracy: </span><span class="si">{</span><span class="n">acc</span><span class="si">}</span><span class="se">\n</span><span class="s1">Precision: </span><span class="si">{</span><span class="n">precision</span><span class="si">}</span><span class="se">\n</span><span class="s1">Recall: </span><span class="si">{</span><span class="n">recall</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LDA model,RUN 0
+Accuracy: 0.8805704099821747
+Precision: 0.8805704099821747
+Recall: 0.8805704099821747
+LDA model,RUN 1
+Accuracy: 0.9126559714795008
+Precision: 0.9126559714795008
+Recall: 0.9126559714795008
+LDA model,RUN 2
+Accuracy: 0.8636363636363636
+Precision: 0.8636363636363636
+Recall: 0.8636363636363636
+LDA model,RUN 3
+Accuracy: 0.9046345811051694
+Precision: 0.9046345811051694
+Recall: 0.9046345811051694
+LDA model,RUN 4
+Accuracy: 0.893048128342246
+Precision: 0.893048128342246
+Recall: 0.893048128342246
+LDA model,RUN 5
+Accuracy: 0.8983957219251337
+Precision: 0.8983957219251337
+Recall: 0.8983957219251337
+LDA model,RUN 6
+Accuracy: 0.910873440285205
+Precision: 0.910873440285205
+Recall: 0.910873440285205
+LDA model,RUN 7
+Accuracy: 0.9090909090909091
+Precision: 0.9090909090909091
+Recall: 0.9090909090909091
+LDA model,RUN 8
+Accuracy: 0.9162210338680927
+Precision: 0.9162210338680927
+Recall: 0.9162210338680927
+LDA model,RUN 9
+Accuracy: 0.875222816399287
+Precision: 0.875222816399287
+Recall: 0.875222816399287
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./HW3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../HW2/main.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Homework no.2</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../HW4/main.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework no.4 Machine Learning</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
