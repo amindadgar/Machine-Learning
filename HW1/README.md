@@ -1,0 +1,2 @@
+# Homework no.1 Machine Learning
+Questions of number 1 are saved in [HW1_Questions.pdf](https://github.com/amindadgar/Machine-Learning-Homeworks/blob/main/HW1/HW1_Questions.pdf) of the repository. Answers are in [main.ipynb](https://github.com/amindadgar/Machine-Learning-Homeworks/blob/main/HW1/main.ipynb) as the pages of it is available. Also some of the answers are written as python script in the directory [HW1/scripts](https://github.com/amindadgar/Machine-Learning-Homeworks/tree/main/HW1/scripts).

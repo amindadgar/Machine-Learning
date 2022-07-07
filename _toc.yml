@@ -1,0 +1,11 @@
+format: jb-book
+root: README
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+chapters:
+- file: HW1/README.md
+  sections:
+  - file: HW1/main.ipynb
+- file: HW2/main.ipynb
+- file: HW3/main.ipynb
+- file: HW4/main.ipynb
